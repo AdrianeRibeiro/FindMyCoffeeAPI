@@ -1,0 +1,45 @@
+default: &default
+  adapter: postgis
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: rails
+  password: cafeehbom
+  host: 206.189.190.11
+  port: 5432
+ 
+development:
+  <<: *default
+  database: central_perk_development
+  
+test:
+  <<: *default
+  database: central_perk_test
+ 
+production:
+  <<: *default
+  database: find_my_coffee_api_production
+  username: find_my_coffee_api
+  password: <%= ENV['FIND_MY_COFFEE_API_DATABASE_PASSWORD'] %>
+
+# default: &default
+#   adapter: postgis
+#   encoding: unicode
+
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: adriane
+#   password: 123456
+#   host: localhost
+
+# development:
+#   <<: *default
+#   database: find_my_coffe_api_development
+
+# test:
+#   <<: *default
+#   database: find_my_coffe_api_test
+
+# production:
+#   <<: *default
+#   database: find_my_coffe_api_production
+#   username: find_my_coffe_api
+#   password: <%= ENV['FIND_MY_COFFE_API_DATABASE_PASSWORD'] %>
